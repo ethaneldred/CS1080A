@@ -1,0 +1,303 @@
+/* ==========================================================================
+   GLOBAL STYLES & CSS VARIABLES
+   ========================================================================== */
+:root {
+  --primary-color: #1a2a3a;
+  --accent-color: #c5a059;
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-color: #2b2b2b;
+  --light-gray: #e9ecef;
+  --border-color: #dcdcdc;
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+header {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+nav a:visited {
+  color: #d1d5db;
+}
+
+/* ==========================================================================
+   MAIN CONTENT & FLEXBOX LAYOUTS
+   ========================================================================== */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.intro-section {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.intro-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.feature-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  flex: 1 1 100%;
+  min-width: 280px;
+}
+
+.card h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 3px;
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   TABLE STYLES
+   ========================================================================== */
+.table-container {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: var(--light-gray);
+}
+
+/* ==========================================================================
+   MULTIMEDIA & MEDIA LAYOUTS
+   ========================================================================== */
+.media-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.media-block {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+video, audio {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+
+/* Responsive 16:9 Video Wrapper */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex: 1 1 calc(33.333% - 1.5rem);
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+
+  main {
+    padding: 0 1rem;
+  }
+}
+
+/* ==========================================================================
+   IMAGE GALLERY STYLES
+   ========================================================================== */
+.image-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.image-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 1 1 calc(50% - 1.5rem); /* 2 columns on tablet/desktop */
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Enforces uniform image sizing across all 4 photos */
+.image-card img {
+  width: 100%;
+  height: 280px;            /* Forces consistent height */
+  object-fit: cover;        /* Prevents distortion or stretching */
+  display: block;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.image-caption {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.image-caption h3 {
+  color: var(--primary-color);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.image-caption p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+/* Single column stack for mobile viewports */
+@media (max-width: 600px) {
+  .image-card {
+    flex: 1 1 100%;
+  }
+}
